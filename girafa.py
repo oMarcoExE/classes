@@ -1,8 +1,9 @@
-
+from random import choice
 class Girafa:
+
 #Propriedades
 
-#o método __init__ é exewcutado quandos a calsse é instaciada
+#o método __init__ é executado quandos a calsse é instaciada
 
     def __init__(self, nome, altura, cor, idade, origem):
         self.nome = nome 
@@ -13,7 +14,6 @@ class Girafa:
         self.__fome = 100
     
     def andar(self):
-
         if self.__fome > 40:
             print(self.nome, "A girafa esta com fome, e não pode andar")
         else:
@@ -39,8 +39,21 @@ class Girafa:
         elif self.__fome <= 0:
             print(self.nome, "está explodindo.")
 
-    def respira():
-        pass
+    def respira(self):
+        print(self.nome, "Inspira...")
+        ##time.sleep(2)
+        print(self.nome, "Expira")
 
-    def reprodux():
-        pass
+    def reproduz(self, parceiro):
+        if not isinstance(parceiro, Girafa):
+            print(self.nome, "Sai correndo desesperado")
+
+        nome = "Filhode de " + self.nome
+        altura = (self.altura + parceiro.altura) / 2
+        idade = 1
+        cor = choice([self, parceiro]).cor
+        origem = self.origem
+
+        filhote = Girafa(nome, altura, idade, cor, origem)
+
+        return filhote 
